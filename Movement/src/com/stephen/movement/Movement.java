@@ -40,10 +40,10 @@ public class Movement extends Activity {
 		});
 	}
 	
-	public int getMovement(){
+	/*public int getMovement(){
 		
 		
-	}
+	}*/
 	
 	
 	public void rightThruster(View view) {
