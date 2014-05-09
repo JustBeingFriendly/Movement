@@ -83,8 +83,6 @@ public class AnimationView extends SurfaceView implements Runnable, SurfaceHolde
 		}		
 	}
 	
-	
-	
 	@Override
 	public void run() {
 		shipYPos =  50;
@@ -96,31 +94,29 @@ public class AnimationView extends SurfaceView implements Runnable, SurfaceHolde
 			synchronized(holder)
 			{
 				if(rightThrusterFiring){
-					shipXPos-=1;
-					//rightThrusterFiring = false;
+					shipXPos-=6;
 				}
 				if(leftThrusterFiring){
-					shipXPos+=1;
-					//leftThrusterFiring = false;
+					shipXPos+=6;
 				}
-
-					
+				if(mainRocketFiring){
+					shipYPos-=6;
+				}
+				shipYPos += 2;
 				canvas = holder.lockCanvas();								
 				canvas.scale(1, 1);
 				canvas.drawColor(Color.BLACK);
 				canvas.drawBitmap(spaceShip, shipXPos, shipYPos, null);
-				//shipXPos+=5;
-				//shipYPos+=1;
-				
+
 			}
 			
-			try 
+/*			try 
 			{
 				Thread.sleep(40);
 			}		catch(InterruptedException e)
 			{
 				e.printStackTrace();
-			}
+			}*/
 			holder.unlockCanvasAndPost(canvas);			
 		}		
 	}
@@ -129,7 +125,7 @@ public class AnimationView extends SurfaceView implements Runnable, SurfaceHolde
 	
 	
 	
-	protected boolean getRightThruster() {
+/*	protected boolean getRightThruster() {
 		rightThrusterFiring = true;
 		return rightThrusterFiring;
 	}
@@ -142,6 +138,6 @@ public class AnimationView extends SurfaceView implements Runnable, SurfaceHolde
 	protected boolean mainRocket() {
 		mainRocketFiring = true;
 		return mainRocketFiring;
-	}
+	}*/
 	
 }

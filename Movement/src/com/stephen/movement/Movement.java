@@ -14,7 +14,7 @@ public class Movement extends Activity {
 	private Button rButton;
 	private Button lButton;
 	private Button cButton;
-	int count = 0;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		
@@ -79,24 +79,8 @@ public class Movement extends Activity {
 		});
 		
 	}
-	
-	/*public int getMovement(){
-		
-		
-	}*/
-	
-	
-/*	public void rightThruster(View view) {
-		av.rightThruster();
-	}
-	
-	public void leftThruster(View view) {
-		av.leftThruster();
-	}
-	
-	public void mainRocket(View view) {
-		av.mainRocket();
-	}*/
+
+
 
 
 
