@@ -20,7 +20,7 @@
         android:layout_centerHorizontal="true"
         android:text="@string/centre_button"
         android:alpha="0.25"
-        android:onClick="mainRocket"  />
+        />
     
     <Button
         android:id="@+id/rbutton"
@@ -31,7 +31,7 @@
         android:layout_alignParentTop="true"
         android:text="@string/right_button"
         android:alpha="0.25" 
-        android:onClick="rightThruster" />
+      />
 
     <Button
         android:id="@+id/lbutton"
@@ -42,6 +42,6 @@
         android:layout_alignParentTop="true"
         android:text="@string/left_button"
         android:alpha="0.25" 
-        android:onClick="leftThruster"  />
+      />
 
 </RelativeLayout>

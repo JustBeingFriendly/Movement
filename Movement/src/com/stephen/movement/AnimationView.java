@@ -17,9 +17,9 @@ public class AnimationView extends SurfaceView implements Runnable, SurfaceHolde
 	private boolean running;
 	private Bitmap spaceShip;
 	
-	private boolean rightThrusterFiring;
-	private boolean leftThrusterFiring;
-	private boolean mainRocketFiring;
+	protected boolean rightThrusterFiring;
+	protected boolean leftThrusterFiring;
+	protected boolean mainRocketFiring;
 	
 	private int shipXPos = 0;
 	private int shipYPos = 0;
@@ -95,13 +95,13 @@ public class AnimationView extends SurfaceView implements Runnable, SurfaceHolde
 			
 			synchronized(holder)
 			{
-				while(rightThrusterFiring){
-					shipXPos+=50;
-					rightThrusterFiring = false;
+				if(rightThrusterFiring){
+					shipXPos-=1;
+					//rightThrusterFiring = false;
 				}
-				while(leftThrusterFiring){
-					shipXPos-=50;
-					leftThrusterFiring = false;
+				if(leftThrusterFiring){
+					shipXPos+=1;
+					//leftThrusterFiring = false;
 				}
 
 					
@@ -125,20 +125,23 @@ public class AnimationView extends SurfaceView implements Runnable, SurfaceHolde
 		}		
 	}
 	
-
-		
 	
 	
-	protected void rightThruster() {
+	
+	
+	protected boolean getRightThruster() {
 		rightThrusterFiring = true;
+		return rightThrusterFiring;
 	}
 	
-	protected void leftThruster() {
+	protected boolean leftThruster() {
 		leftThrusterFiring = true;
+		return leftThrusterFiring;
 	}
 	
-	protected void mainRocket() {
+	protected boolean mainRocket() {
 		mainRocketFiring = true;
+		return mainRocketFiring;
 	}
 	
 }

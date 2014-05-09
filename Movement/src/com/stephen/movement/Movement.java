@@ -33,11 +33,51 @@ public class Movement extends Activity {
 			
 			@Override
 			public boolean onTouch(View v, MotionEvent event) {
-				int e = event.getAction();
-				count ++;
+
+				if(event.getAction() != MotionEvent.ACTION_UP){
+					av.rightThrusterFiring = true;
+				}
+				else
+				{
+					av.rightThrusterFiring = false;
+				}
 				return false;
 			}
 		});
+		
+		
+		lButton.setOnTouchListener(new OnTouchListener() {
+			
+			@Override
+			public boolean onTouch(View v, MotionEvent event) {
+
+				if(event.getAction() != MotionEvent.ACTION_UP){
+					av.leftThrusterFiring = true;
+				}
+				else
+				{
+					av.leftThrusterFiring = false;
+				}
+				return false;
+			}
+		});
+		
+		cButton.setOnTouchListener(new OnTouchListener() {
+			
+			@Override
+			public boolean onTouch(View v, MotionEvent event) {
+
+				if(event.getAction() != MotionEvent.ACTION_UP){
+					av.mainRocketFiring = true;
+				}
+				else
+				{
+					av.mainRocketFiring = false;
+				}
+				return false;
+			}
+		});
+		
 	}
 	
 	/*public int getMovement(){
@@ -46,7 +86,7 @@ public class Movement extends Activity {
 	}*/
 	
 	
-	public void rightThruster(View view) {
+/*	public void rightThruster(View view) {
 		av.rightThruster();
 	}
 	
@@ -56,7 +96,7 @@ public class Movement extends Activity {
 	
 	public void mainRocket(View view) {
 		av.mainRocket();
-	}
+	}*/
 
 
 
