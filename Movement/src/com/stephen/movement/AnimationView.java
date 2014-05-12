@@ -86,23 +86,44 @@ public class AnimationView extends SurfaceView implements Runnable, SurfaceHolde
 	@Override
 	public void run() {
 		shipYPos =  50;
+		int gravity = 0;
+		int verticalThrust = 0;
 		while(running)
 		{
 			Canvas canvas = null;
 			SurfaceHolder holder = getHolder();
 			
+			
 			synchronized(holder)
 			{
+				
 				if(rightThrusterFiring){
 					shipXPos-=6;
 				}
 				if(leftThrusterFiring){
 					shipXPos+=6;
 				}
+				
 				if(mainRocketFiring){
-					shipYPos-=6;
+					if(verticalThrust <= 1){
+						verticalThrust += 1;
+					}
+					shipYPos -= verticalThrust;
+					if(gravity > 3){
+						gravity -= verticalThrust;
+					}
+					//shipYPos += gravity;
 				}
-				shipYPos += 2;
+				else{
+					verticalThrust = 0;
+					
+					if( gravity < 8) {					
+						gravity++;
+					}
+					shipYPos += gravity;
+				}
+
+				
 				canvas = holder.lockCanvas();								
 				canvas.scale(1, 1);
 				canvas.drawColor(Color.BLACK);
@@ -110,7 +131,7 @@ public class AnimationView extends SurfaceView implements Runnable, SurfaceHolde
 
 			}
 			
-/*			try 
+			/*try 
 			{
 				Thread.sleep(40);
 			}		catch(InterruptedException e)
